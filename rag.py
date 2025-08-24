@@ -1,3 +1,10 @@
+
+# Force Chroma to use modern SQLite (important for Streamlit Cloud)
+import sys
+import sqlite3
+sys.modules["sqlite3"] = sqlite3
+
+
 from uuid import uuid4
 
 from dotenv import load_dotenv

@@ -2,10 +2,11 @@ streamlit==1.37.1
 python-dotenv==1.0.1
 langchain==0.2.6
 langchain-community==0.2.6
-langchain-groq==0.1.9   # 🔄 upgrade to >=0.1.9
+langchain-groq==0.1.9
 langchain-chroma==0.1.2
 chromadb==0.4.22
 huggingface_hub==0.23.4
 unstructured==0.10.30
 pysqlite3-binary
+
 
