@@ -35,7 +35,11 @@ def initialize_components():
     global llm, vector_store
 
     if llm is None:
-        llm = ChatGroq(model="llama-3.3-70b-versatile", temperature=0.9, max_tokens=500)
+        llm = ChatGroq(
+            model="llama-3.3-70b-versatile",
+            temperature=0.9,
+            max_tokens=500
+        )
 
     if vector_store is None:
         ef = HuggingFaceEmbeddings(
@@ -43,11 +47,13 @@ def initialize_components():
             model_kwargs={"trust_remote_code": True}
         )
 
+        # ✅ Persist safely in /tmp (Streamlit Cloud writable dir)
         vector_store = Chroma(
             collection_name=COLLECTION_NAME,
             embedding_function=ef,
-            persist_directory=str(VECTOR_STORE_DIR)
+            persist_directory="/tmp/chroma"
         )
+
 
 def process_urls(urls):
     """Scrape data from the urls and store in vector db"""
