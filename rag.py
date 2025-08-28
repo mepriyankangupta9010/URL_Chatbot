@@ -1,7 +1,5 @@
 # Patch SQLite for Chroma (important for Streamlit Cloud)
-import sys
-import pysqlite3
-sys.modules["sqlite3"] = pysqlite3
+
 
 
 from uuid import uuid4
