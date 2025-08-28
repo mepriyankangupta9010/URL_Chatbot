@@ -1,7 +1,8 @@
 # Patch SQLite for Chroma (important for Streamlit Cloud)
 import sys
-import pysqlite3_binary
-sys.modules["sqlite3"] = pysqlite3_binary
+import pysqlite3
+sys.modules["sqlite3"] = pysqlite3
+
 
 from uuid import uuid4
 from dotenv import load_dotenv
@@ -17,7 +18,8 @@ import os
 
 load_dotenv()
 
-CHUNK_SIZE = 1000
+CHUNK_SIZE = 1000 
+
 EMBEDDING_MODEL = "Alibaba-NLP/gte-base-en-v1.5"
 VECTOR_STORE_DIR = Path(__file__).parent / "resources/vector_store"
 COLLECTION_NAME = "real_estate"
